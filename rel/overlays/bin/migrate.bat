@@ -1,0 +1,1 @@
+call "%~dp0\moles" eval Moles.Release.migrate

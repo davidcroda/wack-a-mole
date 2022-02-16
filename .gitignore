@@ -35,9 +35,6 @@ npm-debug.log
 # Elixir language server
 .elixir_ls
 
-# Releases
-rel/
-
 # IDE Settings
 .vscode
 .idea
