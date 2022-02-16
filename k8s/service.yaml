@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
         - name: moles
-          image: registry.daveroda.com/moles:latest
+          image: davidcroda/wack-a-mole:latest
           imagePullPolicy: Always
           resources:
             limits:
