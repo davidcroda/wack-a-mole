@@ -1,0 +1,19 @@
+<div class="main">
+  <div class="viewers px-2 py-5">
+      <h1>Count: <%= @count %></h1>
+      <ul class="list-none" id="user-list">
+      <%= for user <- @users do %>
+        <li><%= user.username %></li>
+      <% end %>
+      </ul>
+  </div>
+  <div class="py-5">
+      <div class="game-board">
+          <%= for i <- 0..4 do %>
+            <%= for a <- 0..4 do %>
+              <div class="game-space" phx-click="wack_mole" phx-value-row={i} phx-value-col={a}><%= check_mole(@moles, i, a) %></div>
+            <% end %>
+          <% end %>
+      </div>
+  </div>
+</div>

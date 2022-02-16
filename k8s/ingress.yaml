@@ -1,0 +1,32 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: moles
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`moles.daveroda.com`)
+      kind: Rule
+      services:
+        - name: moles
+          port: 4000
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: moles-tls
+spec:
+  entryPoints:
+    - websecure
+  routes:
+    - match: Host(`moles.daveroda.com`)
+      kind: Rule
+      services:
+        - name: moles
+          port: 4000
+  tls:
+    certResolver: letsencrypt
+---
+apiVersion: traefik.containo.us/v1alpha1

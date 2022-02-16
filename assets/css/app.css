@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+    .main {
+        display: grid;
+        grid-template-columns: 20% auto minmax(0, 1fr);
+    }
+
+    .game-board {
+        @apply gap-2 justify-items-center items-center mx-auto bg-gray-100 grid;
+        
+        grid-template-columns: repeat(5, 3rem);
+        grid-template-rows: repeat(5, 3rem);
+    }
+
+    .game-space {
+        @apply text-4xl cursor-crosshair border-2 w-12 h-12;
+        display: block;
+    }
+}   
