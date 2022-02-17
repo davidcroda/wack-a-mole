@@ -44,6 +44,7 @@ metadata:
   name: postgres
 
 spec:
+  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: postgres
@@ -61,7 +62,7 @@ spec:
           imagePullPolicy: "IfNotPresent"
           ports:
             - containerPort: 5432
-          envFrom:
+          env:
             - name: POSTGRES_DB
               value: mole_dev
             - name: POSTGRES_USER
@@ -79,8 +80,11 @@ spec:
               name: postgresdb
           resources:
             limits:
-              memory: 1Gi
               cpu: "1"
+              memory: 2Gi
+            requests:
+              cpu: "500m"
+              memory: 1Gi
       volumes:
         - name: postgresdb
           persistentVolumeClaim:
@@ -102,4 +106,3 @@ spec:
 
   selector:
     app: postgres
-

@@ -28,5 +28,3 @@ spec:
           port: 4000
   tls:
     certResolver: letsencrypt
----
-apiVersion: traefik.containo.us/v1alpha1
