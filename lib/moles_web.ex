@@ -30,7 +30,7 @@ defmodule MolesWeb do
   def view do
     quote do
       use Phoenix.View,
-        root: "lib/personal_web/templates",
+        root: "lib/moles_web/templates",
         namespace: MolesWeb
 
       # Import convenience functions from controllers
