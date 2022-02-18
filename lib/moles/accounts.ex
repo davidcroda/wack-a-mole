@@ -43,8 +43,14 @@ defmodule Moles.Accounts do
   end
 
   def get_users_map(ids) do
-    query = from u in User, where: u.id in ^ids, select: {u.id, u}
-    query |> Repo.all() |> Enum.into(%{})
+    case length(ids) do
+      0 ->
+        []
+
+      _ ->
+        query = from u in User, where: u.id in ^ids, select: {u.id, u}
+        query |> Repo.all() |> Enum.into(%{})
+    end
   end
 
   def list_user do
